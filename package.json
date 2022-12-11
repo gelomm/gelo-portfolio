@@ -1,7 +1,7 @@
 {
-  "name": "gelomm-portfolio",
+  "name": "gelo-portfolio",
   "version": "0.1.0",
-  "homepage": "http://gelomm.github.io/gelomm-portfolio",
+  "homepage": "http://gelomm.github.io/gelo-portfolio",
   "private": true,
   "dependencies": {
     "@iconify/iconify": "^2.1.0",
