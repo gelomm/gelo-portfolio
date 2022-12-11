@@ -25,7 +25,7 @@ function App() {
                 <NavBar/>
                 <ScrollToTop/>
                 <Routes>
-                    <Route path={"/gelo-portfolio"} exact element={<Home/>}/>
+                    <Route path={"/"} exact element={<Home/>}/>
                     <Route path={"/projects"} exact element={<Projects/>}/>
                     <Route path={"/skills"} exact element={<Skills/>}/>
                 </Routes>
