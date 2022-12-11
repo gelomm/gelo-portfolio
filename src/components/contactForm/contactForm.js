@@ -1,52 +1,47 @@
 import React from 'react'
 import { useState } from 'react'
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 import './contact.css'
 
 const ContactForm = () => {
-    const [status, setStatus] = useState("Submit");
+    const form = useRef();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setStatus("Sending...");
-        const { name, email, message } = e.target.elements;
-        let details = {
-        name: name.value,
-        email: email.value,
-        message: message.value,
-        };
-        let response = await fetch("http://localhost:5000/contact", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify(details),
+    const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+        .sendForm(
+            'service_1bw8w0n', 
+            'template_f2qco1i', 
+            form.current, 'mMpzcEMxAOtmXwtfY')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
         });
-        setStatus("Submit");
-        let result = await response.json();
-        alert(result.status);
     };
 
     return (
-
-        <form className='contact-form-cont' onSubmit={handleSubmit}>
-                <div className='input-cont'>
+        <form className='contact-form-cont' ref={form} onSubmit={sendEmail}>
+            <div className='input-cont'>
+                <div>
                     <div>
-                        <div>
-                            <label htmlFor="name">Name:</label>
-                            <input type="text" id="name" required />
-                        </div>
-                        <div>
-                            <label htmlFor="email">Email:</label>
-                            <input type="email" id="email" required />
-                        </div>
-                        <div>
-                            <label htmlFor="message">Message:</label>
-                            <textarea id="message" required />
-                        </div>
+                        <label>Name</label>
+                        <input type="text" name="user_name" />
                     </div>
-                    <button className='button-28' type="submit">{status}</button>
+                    <div>
+                        <label>Email</label>
+                        <input type="email" name="user_email" />
+                    </div>
+                    <div>
+                        <label>Message</label>
+                        <textarea name="message" />    
+                    </div>
                 </div>
+                <input className='button-28' type="submit" value="Send" />
+            </div>
         </form>
 
     )
