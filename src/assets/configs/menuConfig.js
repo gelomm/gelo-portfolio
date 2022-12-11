@@ -13,7 +13,7 @@ const menuConfig = {
         {
             id: "menu-0",
             title: "Home",
-            path: "/gelomm-portfolio",
+            path: "/gelo-portfolio",
             icon: <AiFillHome size={35}/>,
             className: "nav-text"
         },
