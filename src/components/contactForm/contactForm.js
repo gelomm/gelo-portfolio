@@ -52,14 +52,22 @@ const ContactForm = () => {
             console.log(error.text);
         });
         
-        const newVal = {
-            name: formVal.name = "",
-            email: formVal.email = "",
-            message: formVal.message = ""
-        }
-        setFormVal(newVal)
+        // const newVal = {
+        //     name: formVal.name = "",
+        //     email: formVal.email = "",
+        //     message: formVal.message = ""
+        // }
+        // setFormVal(newVal)
         setIsSubmit(true)
+
         setTimeout(() => {
+            const newVal = {
+                name: formVal.name = "",
+                email: formVal.email = "",
+                message: formVal.message = ""
+            }
+            setFormVal(newVal)
+
             setIsSubmit(false)
         }, 2000);
     };
@@ -69,7 +77,9 @@ const ContactForm = () => {
             <form className='contact-form-cont' ref={form} onSubmit={sendEmail}>
             {(isSubmit)? 
             <>
-            <Success/>
+            <Success
+            name = {formVal.name}
+            />
             </>
             :
             <>
