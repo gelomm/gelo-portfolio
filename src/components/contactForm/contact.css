@@ -101,4 +101,46 @@ textarea{
 }
 .success-cont h1{
     color: rgb(32, 156, 16);
+    font-weight: 900;
+}
+.success-cont h3 span{
+    color: rgb(32, 156, 16);
+    font-weight: bolder;
+    margin-left: .5rem;
+}
+
+.name-error{
+    position: absolute;
+    margin: 03.5rem 0 0 0 ;
+    font-size: small;
+    font-weight: 600;
+    color: red;
+}
+.input-name-error{
+    border-style: outset;
+    border-color: red;
+}
+
+.email-error{
+    position: absolute;
+    margin: 03.5rem 0 0 0 ;
+    font-size: small;
+    font-weight: 600;
+    color: red;
+}
+.input-email-error{
+    border-style: outset;
+    border-color: red;
+}
+
+.message-error{
+    position: absolute;
+    margin: 05.4rem 0 0 0 ;
+    font-size: small;
+    font-weight: 600;
+    color: red;
+}
+.input-message-error{
+    border-style: outset;
+    border-color: red;
 }
