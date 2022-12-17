@@ -1,12 +1,14 @@
 import React from 'react'
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 import './contact.css'
 import Success from './success';
 
 const ContactForm = () => {
-
+    Aos.init();
     const [formVal, setFormVal] = useState({
         name: "",
         email: "",
@@ -107,7 +109,7 @@ const ContactForm = () => {
 
 
         //errors
-        if (formVal.name == "") {
+        if (formVal.name === "") {
             setFormErr({ ...formErr, nameErr: formErr.nameErr = "name-error"})
             setInputErr({ ...inputErr, 
                 inputNameErr: inputErr.inputNameErr = "Please add your name.",
@@ -115,7 +117,7 @@ const ContactForm = () => {
             })
         }
 
-        if (formVal.email == "") {
+        if (formVal.email === "") {
             setFormErr({ ...formErr, emailErr: formErr.emailErr = "email-error"})
             setInputErr({ ...inputErr, 
                 inputEmailErr: inputErr.inputEmailErr = "Please add your email.",
@@ -123,14 +125,14 @@ const ContactForm = () => {
             })
         }
 
-        if (formVal.message == "") {
+        if (formVal.message === "") {
             setFormErr({ ...formErr, messageErr: formErr.messageErr = "message-error"})
             setInputErr({ ...inputErr, 
                 inputMessageErr: inputErr.inputMessageErr = "Please add your message.",
                 messageStyleErr: inputErr.messageStyleErr = "input-message-error"
             })
         }
-        if (formVal.name != "" && formVal.email != "" && formVal.message != "") {
+        if (formVal.name !== "" && formVal.email !== "" && formVal.message !== "") {
             email();
         }
 
@@ -148,7 +150,7 @@ const ContactForm = () => {
             </>
             :
             <>
-                <div className='input-cont'>
+                <div className='input-cont' data-aos="fade-up" data-aos-duration="1000">
                     <div>
                         <div>
                             <label>Name</label>
